@@ -8,6 +8,7 @@ public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgafoodApiApplication.class, args);
+		System.out.println("5.18. Criando uma fábrica de Specifications");
 	}
 
 }
