@@ -53,17 +53,14 @@ public class CidadeController {
 		try {
 			cidade = cadastroCidade.salvar(cidade);
 			
-			return ResponseEntity.status(HttpStatus.CREATED)
-					.body(cidade);
+			return ResponseEntity.status(HttpStatus.CREATED).body(cidade);
 		} catch (EntidadeNaoEncontradaException e) {
-			return ResponseEntity.badRequest()
-					.body(e.getMessage());
+			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
 	
 	@PutMapping("/{cidadeId}")
-	public ResponseEntity<?> atualizar(@PathVariable Long cidadeId,
-			@RequestBody Cidade cidade) {
+	public ResponseEntity<?> atualizar(@PathVariable Long cidadeId, @RequestBody Cidade cidade) {
 		try {
 			// Podemos usar o orElse(null) também, que retorna a instância de cidade
 			// dentro do Optional, ou null, caso ele esteja vazio,

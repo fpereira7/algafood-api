@@ -12,7 +12,7 @@ public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("6.4. Mapeando classes incorporáveis com @Embedded e @Embeddable");
+		System.out.println("7.1. Entendendo o funcionamento de um pool de conexões");
 	}
 
 }
