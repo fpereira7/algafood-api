@@ -12,7 +12,7 @@ public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("7.8. Criando migrações complexas com remanejamento de dados");
+		System.out.println("7.12. Desafio: Criando migrações e mapeando as entidades Pedido e ItemPedido");
 	}
 
 }
