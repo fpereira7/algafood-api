@@ -12,7 +12,7 @@ public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("8.7. Analisando os impactos da refatoração");
+		System.out.println("8.13. Tratando exceções globais com @ExceptionHandler e @ControllerAdvice");
 	}
 
 }
