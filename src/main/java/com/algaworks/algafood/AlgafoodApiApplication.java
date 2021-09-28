@@ -12,7 +12,7 @@ public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("8.19. Desafio: usando o formato de problemas no corpo de respostas");
+		System.out.println("8.21. Tratando a exception InvalidFormatException na desserialização");
 	}
 
 }
