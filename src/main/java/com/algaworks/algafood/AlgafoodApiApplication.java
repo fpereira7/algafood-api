@@ -12,7 +12,7 @@ public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("8.21. Tratando a exception InvalidFormatException na desserialização");
+		System.out.println("9.5. Conhecendo e adicionando mais constraints de validação no modelo");
 	}
 
 }
