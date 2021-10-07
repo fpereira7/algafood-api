@@ -12,7 +12,7 @@ public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("9.5. Conhecendo e adicionando mais constraints de validação no modelo");
+		System.out.println("10.1. Introdução aos Testes de Integração e Testes de APIs");
 	}
-
+	
 }
