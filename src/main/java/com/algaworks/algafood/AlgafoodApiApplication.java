@@ -16,7 +16,7 @@ public class AlgafoodApiApplication {
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("11.11. Criando DTOs para entrada de dados na API");
+		System.out.println("11.14. Adicionando e usando o ModelMapper");
 	}
 	
 }
