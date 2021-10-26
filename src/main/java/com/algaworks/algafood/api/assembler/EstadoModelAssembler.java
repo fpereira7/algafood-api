@@ -21,7 +21,9 @@ public class EstadoModelAssembler {
 	}
 
 	public List<EstadoModel> toCollectionModel(List<Estado> estados) {
-		return estados.stream().map(estado -> toModel(estado)).collect(Collectors.toList());
+		return estados.stream()
+				.map(estado -> toModel(estado))
+				.collect(Collectors.toList());
 	}
 
 }

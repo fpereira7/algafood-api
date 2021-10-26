@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,8 +20,6 @@ import com.algaworks.algafood.api.assembler.EstadoInputDisassembler;
 import com.algaworks.algafood.api.assembler.EstadoModelAssembler;
 import com.algaworks.algafood.api.model.EstadoModel;
 import com.algaworks.algafood.api.model.input.EstadoInput;
-import com.algaworks.algafood.domain.exception.EntidadeEmUsoException;
-import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.algaworks.algafood.domain.model.Estado;
 import com.algaworks.algafood.domain.repository.EstadoRepository;
 import com.algaworks.algafood.domain.service.CadastroEstadoService;
@@ -59,7 +56,9 @@ public class EstadoController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public EstadoModel adicionar(@RequestBody @Valid EstadoInput estadoInput) {
 		Estado estado = estadoInputDisassembler.toDomainObject(estadoInput);
-		estado = cadastroEstado.salvar(estado);
+		
+		estado.setNome(estadoInput.getNome());
+		cadastroEstado.salvar(estado);
 		
 		return estadoModelAssembler.toModel(estado);
 	}
@@ -74,7 +73,7 @@ public class EstadoController {
 		return estadoModelAssembler.toModel(estadoAtual);
 	}
 
-	@DeleteMapping("/{estadoId}")
+	/*@DeleteMapping("/{estadoId}")
 	public ResponseEntity<?> remover(@PathVariable Long estadoId) {
 		try {
 			cadastroEstado.excluir(estadoId);
@@ -86,6 +85,11 @@ public class EstadoController {
 		} catch (EntidadeEmUsoException e) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
 		}
+	}*/
+	
+	@DeleteMapping("/{estadoId}")
+	public void remover(@PathVariable Long estadoId) {
+		cadastroEstado.excluir(estadoId);
 	}
 
 }

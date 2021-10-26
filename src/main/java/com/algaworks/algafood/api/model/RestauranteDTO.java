@@ -5,14 +5,16 @@ import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
-public class RestauranteModel {
+@Setter
+public class RestauranteDTO {
 
 	private Long id;
 	private String nome;
-	private BigDecimal precoFrete;
-	private Boolean ativo;
+	private BigDecimal meupauFrete;
 
-	private CozinhaModel cozinha;
+	private String idCozinha;
+	private String nomeCozinha;
+	
+	
 }
