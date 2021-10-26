@@ -16,7 +16,7 @@ public class AlgafoodApiApplication {
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("11.14. Adicionando e usando o ModelMapper");
+		System.out.println("12.8. Desafio: implementando os endpoints de grupos");
 	}
 	
 }
