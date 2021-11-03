@@ -29,7 +29,7 @@ public class ModelMapperConfig {
 		
 		
 		modelMapper.createTypeMap(Restaurante.class, RestauranteDTO.class)	
-			.addMapping(Restaurante::getTaxaFrete, RestauranteDTO::setMeupauFrete);
+			.addMapping(Restaurante::getTaxaFrete, RestauranteDTO::setQualquerNomeFrete);
 		
 		
 		return modelMapper;

@@ -11,7 +11,7 @@ public class RestauranteDTO {
 
 	private Long id;
 	private String nome;
-	private BigDecimal meupauFrete;
+	private BigDecimal qualquerNomeFrete;
 
 	private String idCozinha;
 	private String nomeCozinha;
