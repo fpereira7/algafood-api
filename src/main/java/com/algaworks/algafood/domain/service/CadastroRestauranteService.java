@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.algaworks.algafood.domain.exception.RestauranteNaoEncontradoException;
 import com.algaworks.algafood.domain.model.Cidade;
 import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.model.FormaPagamento;
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.repository.RestauranteRepository;
 
@@ -22,6 +23,9 @@ public class CadastroRestauranteService {
 	@Autowired
 	private CadastroCidadeService cadastroCidadeService;
 	
+	@Autowired
+	private CadastroFormaPagamentoService cadastroFormaPagamentoService;
+	
 	@Transactional
 	public Restaurante salvar(Restaurante restaurante) {
 		Long cozinhaId = restaurante.getCozinha().getId();
@@ -36,11 +40,6 @@ public class CadastroRestauranteService {
 		return restauranteRepository.save(restaurante);
 	}
 
-	public Restaurante buscarOuFalhar(Long cozinhaId) {
-		return restauranteRepository.findById(cozinhaId)
-				.orElseThrow(() -> new RestauranteNaoEncontradoException(cozinhaId));
-	}
-	
 	@Transactional
 	public void ativar(Long restauranteId) {
 		Restaurante restauranteAtual = buscarOuFalhar(restauranteId);
@@ -53,5 +52,26 @@ public class CadastroRestauranteService {
 		Restaurante restauranteAtual = buscarOuFalhar(restauranteId);
 		
 		restauranteAtual.inativar();
+	}
+	
+	@Transactional
+	public void desassociarFormaPagamento(Long restauranteId, Long formaPagamentoId) {
+		Restaurante restaurante = buscarOuFalhar(restauranteId);
+		FormaPagamento formaPagamento = cadastroFormaPagamentoService.buscarOuFalhar(formaPagamentoId);
+		
+		restaurante.removerFormaPagamento(formaPagamento);
+	}
+	
+	@Transactional
+	public void associarFormaPagamento(Long restauranteId, Long formaPagamentoId) {
+		Restaurante restaurante = buscarOuFalhar(restauranteId);
+		FormaPagamento formaPagamento = cadastroFormaPagamentoService.buscarOuFalhar(formaPagamentoId);
+		
+		restaurante.adicionarFormaPagamento(formaPagamento);
+	}
+	
+	public Restaurante buscarOuFalhar(Long cozinhaId) {
+		return restauranteRepository.findById(cozinhaId)
+				.orElseThrow(() -> new RestauranteNaoEncontradoException(cozinhaId));
 	}
 }

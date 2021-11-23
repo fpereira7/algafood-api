@@ -84,13 +84,21 @@
     	<artifactId>rest-assured</artifactId>
     	<scope>test</scope>
     </dependency>
-    
+
+      <!-- model mapper -->
     <dependency>
     	<groupId>org.modelmapper</groupId>
     	<artifactId>modelmapper</artifactId>
     	<version>${modelmapper.version}</version>
     </dependency>
-    
+
+      <dependency>
+          <groupId>org.jetbrains</groupId>
+          <artifactId>annotations</artifactId>
+          <version>RELEASE</version>
+          <scope>compile</scope>
+      </dependency>
+
   </dependencies>
 
   <build>

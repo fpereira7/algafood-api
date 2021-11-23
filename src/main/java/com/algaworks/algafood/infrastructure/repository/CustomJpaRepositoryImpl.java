@@ -30,4 +30,14 @@ public class CustomJpaRepositoryImpl<T, ID> extends SimpleJpaRepository<T, ID> i
 		return Optional.ofNullable(entity);
 	}
 
+	
+	//o objeto usuario está sendo atualizado ao buscar por email e o proprio jpa atualiza o objeto, gerando duplicidade do dado
+			// entao é necessario desatachar o objeto para que o jpa nao atualize e faca o commit na base de dados
+			
+	@Override
+	public void detach(T entity) {
+		manager.detach(entity);
+		
+	}
+
 }
