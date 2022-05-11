@@ -19,8 +19,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -75,7 +73,7 @@ public class Restaurante {
 	public void ativar() {
 		setAtivo(true);
 	}
-	
+
 	public void inativar() {
 		setAtivo(false);
 	}
@@ -87,4 +85,5 @@ public class Restaurante {
 	public boolean adicionarFormaPagamento(FormaPagamento formaPagamento) {
 		return getFormasPagamento().add(formaPagamento);
 	}
+
 }

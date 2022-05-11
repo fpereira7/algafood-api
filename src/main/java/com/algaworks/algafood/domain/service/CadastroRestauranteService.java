@@ -70,8 +70,8 @@ public class CadastroRestauranteService {
 		restaurante.adicionarFormaPagamento(formaPagamento);
 	}
 	
-	public Restaurante buscarOuFalhar(Long cozinhaId) {
-		return restauranteRepository.findById(cozinhaId)
-				.orElseThrow(() -> new RestauranteNaoEncontradoException(cozinhaId));
+	public Restaurante buscarOuFalhar(Long restauranteId) {
+		return restauranteRepository.findById(restauranteId)
+				.orElseThrow(() -> new RestauranteNaoEncontradoException(restauranteId));
 	}
 }

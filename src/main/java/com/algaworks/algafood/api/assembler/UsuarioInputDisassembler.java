@@ -13,7 +13,7 @@ public class UsuarioInputDisassembler {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	public Usuario toDomainObject(UsuarioInput usuarioInput) {
+	public Usuario toDomainObject(Object usuarioInput) {
 		return modelMapper.map(usuarioInput, Usuario.class);
 	}
 
