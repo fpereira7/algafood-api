@@ -1,5 +1,6 @@
 package com.algaworks.algafood.domain.service;
 
+import com.algaworks.algafood.domain.model.Permissao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -18,6 +19,9 @@ public class CadastroGrupoService {
 	
 	@Autowired
 	private GrupoRepository grupoRepository;
+
+	@Autowired
+	private CadastroPermissaoService cadastroPermissaoService;
 	
 	@Transactional
 	public Grupo salvar(Grupo grupo) {
@@ -40,5 +44,21 @@ public class CadastroGrupoService {
 	public Grupo buscarOuFalhar(Long grupoId) {
 		return grupoRepository.findById(grupoId)
 				.orElseThrow(() -> new GrupoNaoEncontradoException(grupoId));
+	}
+
+	@Transactional
+	public void desassociarPermissao(Long groupId, Long permissaoId) {
+		Grupo grupo = buscarOuFalhar(groupId);
+		Permissao permissao = cadastroPermissaoService.buscarOuFalhar(permissaoId);
+
+		grupo.removerPermissao(permissao);
+	}
+
+	@Transactional
+	public void associarPermissao(Long groupId, Long permissaoId) {
+		Grupo grupo = buscarOuFalhar(groupId);
+		Permissao permissao = cadastroPermissaoService.buscarOuFalhar(permissaoId);
+
+		grupo.adicionaPermissao(permissao);
 	}
 }
