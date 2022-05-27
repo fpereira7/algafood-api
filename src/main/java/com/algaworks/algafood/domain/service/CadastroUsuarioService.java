@@ -1,7 +1,11 @@
 package com.algaworks.algafood.domain.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+import com.algaworks.algafood.domain.model.Grupo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +20,9 @@ public class CadastroUsuarioService {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+
+	@Autowired
+	private CadastroGrupoService cadastroGrupoService;
 	
 	@Transactional
 	public Usuario salvar(Usuario usuario) {
@@ -40,7 +47,23 @@ public class CadastroUsuarioService {
 		if(usuario.senhaNaoCoincideCom(senhaAtual)) {
 			throw new NegocioException("As senhas são diferentes, favor verificar as senhas.");
 		}
-			
+
 		usuario.setSenha(novaSenha);
+	}
+
+	@Transactional
+	public void desassociarGrupo(Long usuarioId, Long grupoId) {
+		Usuario usuario = buscarOuFalhar(usuarioId);
+		Grupo grupo = cadastroGrupoService.buscarOuFalhar(grupoId);
+
+		usuario.removerGrupo(grupo);
+	}
+
+	@Transactional
+	public void associarGrupo(Long usuarioId, Long grupoId) {
+		Usuario usuario = buscarOuFalhar(usuarioId);
+		Grupo grupo = cadastroGrupoService.buscarOuFalhar(grupoId);
+
+		usuario.adicionarGrupo(grupo);
 	}
 }

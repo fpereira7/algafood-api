@@ -16,7 +16,7 @@ public class AlgafoodApiApplication {
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("12.15. Desafio: implementando os endpoints de associação de grupos com permissões");
+		System.out.println("12.19. Desafio: Implementando os endpoints de consulta de pedidos");
 	}
 	
 }
