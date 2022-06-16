@@ -13,7 +13,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@Data
 public class PedidoResumoModel {
 
     private Long id;
@@ -22,6 +21,7 @@ public class PedidoResumoModel {
     private BigDecimal valorTotal;
     private String status;
     private OffsetDateTime dataCriacao;
+    //private FormaPagamentoModel formaPagamento;
     private RestauranteResumoModel restaurante;
     private UsuarioModel cliente;
 
