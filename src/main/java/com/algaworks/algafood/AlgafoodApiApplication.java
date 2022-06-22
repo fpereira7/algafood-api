@@ -16,7 +16,7 @@ public class AlgafoodApiApplication {
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		
 		SpringApplication.run(AlgafoodApiApplication.class, args);
-		System.out.println("12.22. - Implementando endpoint de transição de status de pedidos");
+		System.out.println("12.23. Desafio: implementando endpoints de transição de status de pedidos");
 	}
 	
 }
