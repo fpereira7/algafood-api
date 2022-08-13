@@ -66,7 +66,7 @@ public class RestauranteRepositoryImpl implements RestauranteRepositoryQueries {
 		return restauranteRepository.findAll(comFreteGratis().and(comNomeSemelhante(nome)));
 	}
 	
-	/* USANDO VAR SOMENTE - ESSA IMPLEMENTACAO DA O MESMO RESULTADO, MAS FICA MAIS LIMPA USANDO VAR NAS INSTANCIAS.
+	/* USANDO VAR SOMENTE - ESSA IMPLEMENTACAO DA O MESMO RESULTADO, MAS FICA MAIS LIMPA USAN-DO VAR NAS INSTANCIAS.
 	 * @Override
 	public List<Restaurante> find(String nome, BigDecimal taxaFreteInicial, BigDecimal taxaFreteFinal) {
 		var builder = manager.getCriteriaBuilder();
